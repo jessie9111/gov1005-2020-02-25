@@ -1,0 +1,27 @@
+---
+title: "Craps"
+author: "Jessica Edwards"
+date: "2/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+roll_die = function(n) sample(1:6, n, replace=TRUE)
+
+roll_two_dice = function() {
+  roll_die(1) + roll_die(1)
+}
+
+map_int(1:10, ~ roll_two_dice())
+```
+
+```{r}
+thousand <- map_int(1:1000, ~ roll_two_dice())
+
+thousand
+```
